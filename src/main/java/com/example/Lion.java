@@ -1,7 +1,5 @@
 package com.example;
 
-import example.example.Feline;
-
 import java.util.List;
 
 public class Lion {
