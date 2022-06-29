@@ -1,14 +1,14 @@
 package com.example;
 
 import org.junit.Test;
-
 import org.mockito.Mockito;
-
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.when;
 
 public class AnimalTest {
 
@@ -60,9 +60,12 @@ public class AnimalTest {
         try {
             Animal animal = new Animal();
             animal.getFood("Человек");
+            fail("Expected exception was not thrown");
         } catch (Exception e) {
             assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник",
                     e.getMessage());
+
+
         }
     }
 

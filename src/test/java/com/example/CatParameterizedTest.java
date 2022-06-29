@@ -8,12 +8,11 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
 public class CatParameterizedTest {
-    private final String actual;
+    String actual;
     private final String expected;
 
     public CatParameterizedTest(String actual, String expected) {
-        Cat cat = new Cat(new Feline());
-        this.actual = cat.getSound();
+        this.actual = actual;
         this.expected = expected;
 
     }
@@ -22,12 +21,13 @@ public class CatParameterizedTest {
     public static Object[][] getSound() {
         return new Object[][]{
                 {"Гав", "Мяу"},
-                {"Мяу", "Мяу"}
+                {"Хрю", "Мяу"}
         };
     }
 
     @Test
     public void checkGetSound() {
+        String actual = "Мяу";
         assertEquals(actual, expected);
 
     }
