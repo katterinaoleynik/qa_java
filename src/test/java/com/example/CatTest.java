@@ -4,9 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-
 import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -22,7 +20,6 @@ public class CatTest {
         assertEquals(expected, cat.getSound());
 
     }
-
 
     @Test
     public void testGetFood() throws Exception {

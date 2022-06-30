@@ -4,8 +4,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -45,7 +43,7 @@ public class LionTest {
     public void testEatFoodMale() throws Exception {
         Feline felineMock = Mockito.mock(Feline.class);
 
-        ArrayList<String> felineFood = new ArrayList<>(List.of("Трава", "Различные растения"));
+        List<String> felineFood = List.of("Трава", "Различные растения");
 
         when(felineMock.eatMeat()).thenReturn(felineFood);
         Lion lion = new Lion(felineMock, "Самец");
@@ -59,7 +57,7 @@ public class LionTest {
     public void testEatFoodFemale() throws Exception {
         Feline felineMock = Mockito.mock(Feline.class);
 
-        ArrayList<String> felineFood = new ArrayList<>(List.of("Трава", "Различные растения"));
+        List<String> felineFood =  List.of("Трава", "Различные растения");
 
         when(felineMock.eatMeat()).thenReturn(felineFood);
         Lion lion = new Lion(felineMock, "Самка");
@@ -72,7 +70,7 @@ public class LionTest {
     @Test
     public void testEatMeatMale() throws Exception {
 
-        ArrayList<String> felineFood = new ArrayList<>(List.of("Животные", "Птицы", "Рыба"));
+        List<String> felineFood = List.of("Животные", "Птицы", "Рыба");
 
         Lion lion = new Lion(new Feline(), "Самец");
 
@@ -84,7 +82,7 @@ public class LionTest {
     @Test
     public void testEatMeatFemale() throws Exception {
 
-        ArrayList<String> felineFood = new ArrayList<>(List.of("Животные", "Птицы", "Рыба"));
+        List<String> felineFood =  List.of("Животные", "Птицы", "Рыба");
 
         Lion lion = new Lion(new Feline(), "Самка");
 
