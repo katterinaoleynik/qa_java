@@ -1,14 +1,11 @@
 package com.example;
 
 import org.junit.Test;
-
 import org.mockito.Mockito;
-
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
 import java.util.List;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+import static org.mockito.Mockito.when;
 
 public class AnimalTest {
 
@@ -25,9 +22,7 @@ public class AnimalTest {
     public void testGetFoodForHerbivore() throws Exception {
         Animal animalMock = Mockito.mock(Animal.class);
 
-        ArrayList<String> herbivoreFood = new ArrayList<>();
-        herbivoreFood.add("Трава");
-        herbivoreFood.add("Различные растения");
+        List<String> herbivoreFood = List.of("Трава", "Различные растения");
 
         when(animalMock.getFood("Травоядное")).thenReturn(herbivoreFood);
         Animal animal = new Animal();
@@ -41,10 +36,7 @@ public class AnimalTest {
     public void checkGetFoodForPredator() throws Exception {
         Animal animalMock = Mockito.mock(Animal.class);
 
-        ArrayList<String> predatorFood = new ArrayList<>();
-        predatorFood.add("Животные");
-        predatorFood.add("Птицы");
-        predatorFood.add("Рыба");
+        List<String> predatorFood = List.of("Животные", "Птицы", "Рыба");
 
         when(animalMock.getFood("Хищник")).thenReturn(predatorFood);
         Animal animal = new Animal();
@@ -60,9 +52,11 @@ public class AnimalTest {
         try {
             Animal animal = new Animal();
             animal.getFood("Человек");
+            fail("Expected exception was not thrown");
         } catch (Exception e) {
             assertEquals("Неизвестный вид животного, используйте значение Травоядное или Хищник",
                     e.getMessage());
+
         }
     }
 
